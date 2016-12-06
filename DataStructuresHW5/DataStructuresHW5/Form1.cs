@@ -12,15 +12,18 @@ namespace DataStructuresHW5
 {
     public partial class Form1 : Form
     {
-        
+        InsertionSort insertion;
+        SelectionSort selection;
+        BubbleSort bubble;
+        MergeSort merge;
+
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void btnDataSlow_Click(object sender, EventArgs e)
-        {
-
+            insertion = new InsertionSort();
+            selection = new SelectionSort();
+            bubble = new BubbleSort();
+            merge = new MergeSort();
         }
 
         private void btnStartSlow_Click(object sender, EventArgs e)
@@ -28,28 +31,45 @@ namespace DataStructuresHW5
             int winningPoints = Int32.Parse(cmbPointsSlow.SelectedItem.ToString());
             int sizeOfData = Int32.Parse(cmbSlowDataSet.SelectedItem.ToString());
 
+            //initialize scores to 0
+            lblSelectionScore.Text = "0";
+            lblInsertionScore.Text = "0";
+            lblBubbleScore.Text = "0";
+
+            prgSelection.Value = 0;
+            prgInsertion.Value = 0;
+            prgBubble.Value = 0;
+
+            lblInsertionTime.Text = "Time: ";
+            lblSelectionTime.Text = "Time: ";
+            lblBubbleTime.Text = "Time: ";
+
             while (Int32.Parse(lblInsertionScore.Text) < winningPoints && Int32.Parse(lblSelectionScore.Text) < winningPoints && Int32.Parse(lblBubbleScore.Text) < winningPoints)
             {
 
                 Random rnd = new Random();
                 List<int> dataSet = Enumerable.Range(0, sizeOfData).Select(n => rnd.Next(0, 1000000)).ToList();
 
-                //run insertionSort
-                InsertionSort insertion = new InsertionSort(sizeOfData);
+                //run insertionSort 
                 insertion.insertData(dataSet);
                 insertion.sort();
 
-                //run selectionSort
-                SelectionSort selection = new SelectionSort(sizeOfData);
+                //run selectionSort        
                 selection.insertData(dataSet);
                 selection.sort();
 
                 //run bubbleSort
-                BubbleSort bubble = new BubbleSort(sizeOfData);
                 bubble.insertData(dataSet);
                 bubble.sort();
 
-                //update score-----------------------------
+                updateSlowScores();
+            }
+        }
+
+        void updateSlowScores()
+        {
+            try
+            {
                 prgInsertion.Maximum = Int32.Parse(cmbPointsSlow.SelectedItem.ToString());
                 prgSelection.Maximum = Int32.Parse(cmbPointsSlow.SelectedItem.ToString());
                 prgBubble.Maximum = Int32.Parse(cmbPointsSlow.SelectedItem.ToString());
@@ -122,10 +142,26 @@ namespace DataStructuresHW5
                 lblInsertionTime.Text = "Time: " + insertion.sortTime.TotalMilliseconds.ToString();
                 lblSelectionTime.Text = "Time: " + selection.sortTime.TotalMilliseconds.ToString();
                 lblBubbleTime.Text = "Time: " + bubble.sortTime.TotalMilliseconds.ToString();
-
-                //------------------------------------
+            }
+            catch (Exception e)
+            {
+                
             }
         }
 
+        private void btnStartFast_Click(object sender, EventArgs e)
+        {
+            int winningPoints = Int32.Parse(cmbPointsFast.SelectedItem.ToString());
+            int sizeOfData = Int32.Parse(cmbFastDataSet.SelectedItem.ToString());
+
+            Random rnd = new Random();
+            List<int> dataSet = Enumerable.Range(0, sizeOfData).Select(n => rnd.Next(0, 1000000)).ToList();
+
+            //run mergeSort 
+            merge.insertData(dataSet);
+            merge.sort();
+
+            //updateScores();
+        }
     }
 }

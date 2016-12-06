@@ -14,14 +14,15 @@ namespace DataStructuresHW5
         private int numElements;
         public TimeSpan sortTime;
 
-        public BubbleSort(int size)
+        public BubbleSort()
         {
-            endIndex = size - 1;
-            numElements = size;
+
         }
 
         public void insertData(List<int> dataSet)
         {
+            endIndex = dataSet.Count - 1;
+            numElements = dataSet.Count;
             data = dataSet;
         }
 
@@ -47,12 +48,10 @@ namespace DataStructuresHW5
                 }
             }
 
-            data.ToString();
             stopwatch.Stop();
 
             sortTime = stopwatch.Elapsed;
 
-            //System.Windows.Forms.MessageBox.Show("Bubble Sort Complete! \nTook " + ts.TotalMilliseconds.ToString() + " milliseconds!");
         }
 
     }

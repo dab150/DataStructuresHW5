@@ -9,19 +9,21 @@ namespace DataStructuresHW5
 {
     class InsertionSort
     {
-        private List<int> arr;
+        private List<int> data;
         private int endIndex;
         private int numElements;
         public TimeSpan sortTime;
-        public InsertionSort(int size)
+
+        public InsertionSort()
         {
-            endIndex = size - 1;
-            numElements = size;
+
         }
 
-        public void insertData(List<int> data)
+        public void insertData(List<int> dataSet)
         {
-            arr = data;
+            endIndex = dataSet.Count - 1;
+            numElements = dataSet.Count;
+            data = dataSet;
         }
 
         public void sort()
@@ -33,15 +35,15 @@ namespace DataStructuresHW5
 
             for (int outer = 1; outer <= endIndex; outer++)
             {
-                temp = arr[outer];
+                temp = data[outer];
                 inner = outer;
-                while (inner > 0 && arr[inner - 1] >= temp)
+                while (inner > 0 && data[inner - 1] >= temp)
                 {
-                    arr[inner] = arr[inner - 1];
+                    data[inner] = data[inner - 1];
                     inner -= 1;
                 }
 
-                arr[inner] = temp;
+                data[inner] = temp;
             }
 
             stopwatch.Stop();

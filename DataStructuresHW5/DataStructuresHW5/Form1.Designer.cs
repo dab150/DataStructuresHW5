@@ -38,7 +38,6 @@
             this.prgBubble = new System.Windows.Forms.ProgressBar();
             this.prgSelection = new System.Windows.Forms.ProgressBar();
             this.prgInsertion = new System.Windows.Forms.ProgressBar();
-            this.btnDataSlow = new System.Windows.Forms.Button();
             this.cmbSlowDataSet = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -50,7 +49,6 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.progressBar3 = new System.Windows.Forms.ProgressBar();
-            this.btnDataFast = new System.Windows.Forms.Button();
             this.cmbFastDataSet = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnStartSlow = new System.Windows.Forms.Button();
@@ -94,7 +92,6 @@
             this.tabPage1.Controls.Add(this.prgBubble);
             this.tabPage1.Controls.Add(this.prgSelection);
             this.tabPage1.Controls.Add(this.prgInsertion);
-            this.tabPage1.Controls.Add(this.btnDataSlow);
             this.tabPage1.Controls.Add(this.cmbSlowDataSet);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -176,16 +173,6 @@
             this.prgInsertion.Size = new System.Drawing.Size(355, 23);
             this.prgInsertion.TabIndex = 6;
             // 
-            // btnDataSlow
-            // 
-            this.btnDataSlow.Location = new System.Drawing.Point(123, 38);
-            this.btnDataSlow.Name = "btnDataSlow";
-            this.btnDataSlow.Size = new System.Drawing.Size(121, 23);
-            this.btnDataSlow.TabIndex = 5;
-            this.btnDataSlow.Text = "Generate Data";
-            this.btnDataSlow.UseVisualStyleBackColor = true;
-            this.btnDataSlow.Click += new System.EventHandler(this.btnDataSlow_Click);
-            // 
             // cmbSlowDataSet
             // 
             this.cmbSlowDataSet.FormattingEnabled = true;
@@ -219,7 +206,6 @@
             this.tabPage2.Controls.Add(this.progressBar1);
             this.tabPage2.Controls.Add(this.progressBar2);
             this.tabPage2.Controls.Add(this.progressBar3);
-            this.tabPage2.Controls.Add(this.btnDataFast);
             this.tabPage2.Controls.Add(this.cmbFastDataSet);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -301,15 +287,6 @@
             this.progressBar3.Size = new System.Drawing.Size(355, 23);
             this.progressBar3.TabIndex = 12;
             // 
-            // btnDataFast
-            // 
-            this.btnDataFast.Location = new System.Drawing.Point(123, 37);
-            this.btnDataFast.Name = "btnDataFast";
-            this.btnDataFast.Size = new System.Drawing.Size(121, 23);
-            this.btnDataFast.TabIndex = 4;
-            this.btnDataFast.Text = "Generate Data";
-            this.btnDataFast.UseVisualStyleBackColor = true;
-            // 
             // cmbFastDataSet
             // 
             this.cmbFastDataSet.FormattingEnabled = true;
@@ -350,6 +327,7 @@
             this.btnStartFast.TabIndex = 20;
             this.btnStartFast.Text = "Start Race!";
             this.btnStartFast.UseVisualStyleBackColor = true;
+            this.btnStartFast.Click += new System.EventHandler(this.btnStartFast_Click);
             // 
             // lblInsertionScore
             // 
@@ -431,8 +409,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbFastDataSet;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnDataSlow;
-        private System.Windows.Forms.Button btnDataFast;
         private System.Windows.Forms.Label lblBubble;
         private System.Windows.Forms.Label lblSelection;
         private System.Windows.Forms.Label lblInsertion;

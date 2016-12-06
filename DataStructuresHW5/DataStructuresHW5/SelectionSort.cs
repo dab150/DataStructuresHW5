@@ -14,14 +14,15 @@ namespace DataStructuresHW5
         private int numElements;
         public TimeSpan sortTime;
 
-        public SelectionSort(int size)
+        public SelectionSort()
         {
-            endIndex = size - 1;
-            numElements = size;
+
         }
 
         public void insertData(List<int> dataSet)
         {
+            endIndex = dataSet.Count - 1;
+            numElements = dataSet.Count;
             data = dataSet;
         }
 
@@ -54,8 +55,6 @@ namespace DataStructuresHW5
                     data[pos_min] = temp;
                 }
             }
-
-            data.ToString();
 
             stopwatch.Stop();
 
