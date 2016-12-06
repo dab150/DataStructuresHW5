@@ -21,11 +21,6 @@ namespace DataStructuresHW5
 
         public void insertData(List<int> data)
         {
-            /*for(int i = 0; i < numElements; i++)
-            {
-                arr[i] = data[i];
-            }*/
-
             arr = data;
         }
 
