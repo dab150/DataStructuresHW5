@@ -30,29 +30,31 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbSlowDataSet = new System.Windows.Forms.ComboBox();
-            this.cmbFastDataSet = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnStartFast = new System.Windows.Forms.Button();
-            this.btnStartSlow = new System.Windows.Forms.Button();
-            this.prgInsertion = new System.Windows.Forms.ProgressBar();
-            this.prgSelection = new System.Windows.Forms.ProgressBar();
-            this.prgBubble = new System.Windows.Forms.ProgressBar();
-            this.lblInsertion = new System.Windows.Forms.Label();
-            this.lblSelection = new System.Windows.Forms.Label();
+            this.cmbPointsSlow = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.lblBubble = new System.Windows.Forms.Label();
+            this.lblSelection = new System.Windows.Forms.Label();
+            this.lblInsertion = new System.Windows.Forms.Label();
+            this.prgBubble = new System.Windows.Forms.ProgressBar();
+            this.prgSelection = new System.Windows.Forms.ProgressBar();
+            this.prgInsertion = new System.Windows.Forms.ProgressBar();
+            this.btnDataSlow = new System.Windows.Forms.Button();
+            this.cmbSlowDataSet = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cmbPointsFast = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.lblQuickMiddle = new System.Windows.Forms.Label();
             this.lblQuickFirst = new System.Windows.Forms.Label();
             this.lblMerge = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.progressBar3 = new System.Windows.Forms.ProgressBar();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbPointsSlow = new System.Windows.Forms.ComboBox();
-            this.cmbPointsFast = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btnDataFast = new System.Windows.Forms.Button();
+            this.cmbFastDataSet = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnStartSlow = new System.Windows.Forms.Button();
+            this.btnStartFast = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -71,6 +73,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnStartSlow);
             this.tabPage1.Controls.Add(this.cmbPointsSlow);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.lblBubble);
@@ -79,7 +82,7 @@
             this.tabPage1.Controls.Add(this.prgBubble);
             this.tabPage1.Controls.Add(this.prgSelection);
             this.tabPage1.Controls.Add(this.prgInsertion);
-            this.tabPage1.Controls.Add(this.btnStartSlow);
+            this.tabPage1.Controls.Add(this.btnDataSlow);
             this.tabPage1.Controls.Add(this.cmbSlowDataSet);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -90,35 +93,86 @@
             this.tabPage1.Text = "N^2 Searches";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // cmbPointsSlow
             // 
-            this.tabPage2.Controls.Add(this.cmbPointsFast);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.lblQuickMiddle);
-            this.tabPage2.Controls.Add(this.lblQuickFirst);
-            this.tabPage2.Controls.Add(this.lblMerge);
-            this.tabPage2.Controls.Add(this.progressBar1);
-            this.tabPage2.Controls.Add(this.progressBar2);
-            this.tabPage2.Controls.Add(this.progressBar3);
-            this.tabPage2.Controls.Add(this.btnStartFast);
-            this.tabPage2.Controls.Add(this.cmbFastDataSet);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(559, 359);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "N*LOG(N) Searches";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.cmbPointsSlow.FormattingEnabled = true;
+            this.cmbPointsSlow.Items.AddRange(new object[] {
+            "3",
+            "10",
+            "15",
+            "25"});
+            this.cmbPointsSlow.Location = new System.Drawing.Point(371, 11);
+            this.cmbPointsSlow.Name = "cmbPointsSlow";
+            this.cmbPointsSlow.Size = new System.Drawing.Size(121, 21);
+            this.cmbPointsSlow.TabIndex = 13;
+            this.cmbPointsSlow.Text = "15";
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Select size of data set:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(295, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Points to win:";
+            // 
+            // lblBubble
+            // 
+            this.lblBubble.AutoSize = true;
+            this.lblBubble.Location = new System.Drawing.Point(38, 218);
+            this.lblBubble.Name = "lblBubble";
+            this.lblBubble.Size = new System.Drawing.Size(65, 13);
+            this.lblBubble.TabIndex = 11;
+            this.lblBubble.Text = "Bubble Sort:";
+            // 
+            // lblSelection
+            // 
+            this.lblSelection.AutoSize = true;
+            this.lblSelection.Location = new System.Drawing.Point(38, 179);
+            this.lblSelection.Name = "lblSelection";
+            this.lblSelection.Size = new System.Drawing.Size(76, 13);
+            this.lblSelection.TabIndex = 10;
+            this.lblSelection.Text = "Selection Sort:";
+            // 
+            // lblInsertion
+            // 
+            this.lblInsertion.AutoSize = true;
+            this.lblInsertion.Location = new System.Drawing.Point(38, 142);
+            this.lblInsertion.Name = "lblInsertion";
+            this.lblInsertion.Size = new System.Drawing.Size(72, 13);
+            this.lblInsertion.TabIndex = 9;
+            this.lblInsertion.Text = "Insertion Sort:";
+            // 
+            // prgBubble
+            // 
+            this.prgBubble.Location = new System.Drawing.Point(120, 218);
+            this.prgBubble.Name = "prgBubble";
+            this.prgBubble.Size = new System.Drawing.Size(355, 23);
+            this.prgBubble.TabIndex = 8;
+            // 
+            // prgSelection
+            // 
+            this.prgSelection.Location = new System.Drawing.Point(120, 179);
+            this.prgSelection.Name = "prgSelection";
+            this.prgSelection.Size = new System.Drawing.Size(355, 23);
+            this.prgSelection.TabIndex = 7;
+            // 
+            // prgInsertion
+            // 
+            this.prgInsertion.Location = new System.Drawing.Point(120, 142);
+            this.prgInsertion.Name = "prgInsertion";
+            this.prgInsertion.Size = new System.Drawing.Size(355, 23);
+            this.prgInsertion.TabIndex = 6;
+            // 
+            // btnDataSlow
+            // 
+            this.btnDataSlow.Location = new System.Drawing.Point(123, 38);
+            this.btnDataSlow.Name = "btnDataSlow";
+            this.btnDataSlow.Size = new System.Drawing.Size(121, 23);
+            this.btnDataSlow.TabIndex = 5;
+            this.btnDataSlow.Text = "Generate Data";
+            this.btnDataSlow.UseVisualStyleBackColor = true;
+            this.btnDataSlow.Click += new System.EventHandler(this.btnDataSlow_Click);
             // 
             // cmbSlowDataSet
             // 
@@ -133,93 +187,59 @@
             this.cmbSlowDataSet.TabIndex = 1;
             this.cmbSlowDataSet.Text = "1000";
             // 
-            // cmbFastDataSet
+            // label1
             // 
-            this.cmbFastDataSet.FormattingEnabled = true;
-            this.cmbFastDataSet.Items.AddRange(new object[] {
-            "10000",
-            "100000",
-            "1000000"});
-            this.cmbFastDataSet.Location = new System.Drawing.Point(123, 10);
-            this.cmbFastDataSet.Name = "cmbFastDataSet";
-            this.cmbFastDataSet.Size = new System.Drawing.Size(121, 21);
-            this.cmbFastDataSet.TabIndex = 3;
-            this.cmbFastDataSet.Text = "10000";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Select size of data set:";
             // 
-            // label2
+            // tabPage2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Select size of data set:";
+            this.tabPage2.Controls.Add(this.btnStartFast);
+            this.tabPage2.Controls.Add(this.cmbPointsFast);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.lblQuickMiddle);
+            this.tabPage2.Controls.Add(this.lblQuickFirst);
+            this.tabPage2.Controls.Add(this.lblMerge);
+            this.tabPage2.Controls.Add(this.progressBar1);
+            this.tabPage2.Controls.Add(this.progressBar2);
+            this.tabPage2.Controls.Add(this.progressBar3);
+            this.tabPage2.Controls.Add(this.btnDataFast);
+            this.tabPage2.Controls.Add(this.cmbFastDataSet);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(559, 359);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "N*LOG(N) Searches";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnStartFast
+            // cmbPointsFast
             // 
-            this.btnStartFast.Location = new System.Drawing.Point(42, 65);
-            this.btnStartFast.Name = "btnStartFast";
-            this.btnStartFast.Size = new System.Drawing.Size(75, 23);
-            this.btnStartFast.TabIndex = 4;
-            this.btnStartFast.Text = "Start!";
-            this.btnStartFast.UseVisualStyleBackColor = true;
+            this.cmbPointsFast.FormattingEnabled = true;
+            this.cmbPointsFast.Items.AddRange(new object[] {
+            "3",
+            "10",
+            "15",
+            "25"});
+            this.cmbPointsFast.Location = new System.Drawing.Point(382, 10);
+            this.cmbPointsFast.Name = "cmbPointsFast";
+            this.cmbPointsFast.Size = new System.Drawing.Size(121, 21);
+            this.cmbPointsFast.TabIndex = 19;
+            this.cmbPointsFast.Text = "15";
             // 
-            // btnStartSlow
+            // label4
             // 
-            this.btnStartSlow.Location = new System.Drawing.Point(42, 62);
-            this.btnStartSlow.Name = "btnStartSlow";
-            this.btnStartSlow.Size = new System.Drawing.Size(75, 23);
-            this.btnStartSlow.TabIndex = 5;
-            this.btnStartSlow.Text = "Start!";
-            this.btnStartSlow.UseVisualStyleBackColor = true;
-            // 
-            // prgInsertion
-            // 
-            this.prgInsertion.Location = new System.Drawing.Point(99, 143);
-            this.prgInsertion.Name = "prgInsertion";
-            this.prgInsertion.Size = new System.Drawing.Size(355, 23);
-            this.prgInsertion.TabIndex = 6;
-            // 
-            // prgSelection
-            // 
-            this.prgSelection.Location = new System.Drawing.Point(99, 180);
-            this.prgSelection.Name = "prgSelection";
-            this.prgSelection.Size = new System.Drawing.Size(355, 23);
-            this.prgSelection.TabIndex = 7;
-            // 
-            // prgBubble
-            // 
-            this.prgBubble.Location = new System.Drawing.Point(99, 219);
-            this.prgBubble.Name = "prgBubble";
-            this.prgBubble.Size = new System.Drawing.Size(355, 23);
-            this.prgBubble.TabIndex = 8;
-            // 
-            // lblInsertion
-            // 
-            this.lblInsertion.AutoSize = true;
-            this.lblInsertion.Location = new System.Drawing.Point(17, 143);
-            this.lblInsertion.Name = "lblInsertion";
-            this.lblInsertion.Size = new System.Drawing.Size(72, 13);
-            this.lblInsertion.TabIndex = 9;
-            this.lblInsertion.Text = "Insertion Sort:";
-            // 
-            // lblSelection
-            // 
-            this.lblSelection.AutoSize = true;
-            this.lblSelection.Location = new System.Drawing.Point(17, 180);
-            this.lblSelection.Name = "lblSelection";
-            this.lblSelection.Size = new System.Drawing.Size(76, 13);
-            this.lblSelection.TabIndex = 10;
-            this.lblSelection.Text = "Selection Sort:";
-            // 
-            // lblBubble
-            // 
-            this.lblBubble.AutoSize = true;
-            this.lblBubble.Location = new System.Drawing.Point(17, 219);
-            this.lblBubble.Name = "lblBubble";
-            this.lblBubble.Size = new System.Drawing.Size(65, 13);
-            this.lblBubble.TabIndex = 11;
-            this.lblBubble.Text = "Bubble Sort:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(306, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Points to win:";
             // 
             // lblQuickMiddle
             // 
@@ -269,51 +289,55 @@
             this.progressBar3.Size = new System.Drawing.Size(355, 23);
             this.progressBar3.TabIndex = 12;
             // 
-            // label3
+            // btnDataFast
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(295, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Points to win:";
+            this.btnDataFast.Location = new System.Drawing.Point(123, 37);
+            this.btnDataFast.Name = "btnDataFast";
+            this.btnDataFast.Size = new System.Drawing.Size(121, 23);
+            this.btnDataFast.TabIndex = 4;
+            this.btnDataFast.Text = "Generate Data";
+            this.btnDataFast.UseVisualStyleBackColor = true;
             // 
-            // cmbPointsSlow
+            // cmbFastDataSet
             // 
-            this.cmbPointsSlow.FormattingEnabled = true;
-            this.cmbPointsSlow.Items.AddRange(new object[] {
-            "3",
-            "10",
-            "15",
-            "25"});
-            this.cmbPointsSlow.Location = new System.Drawing.Point(371, 11);
-            this.cmbPointsSlow.Name = "cmbPointsSlow";
-            this.cmbPointsSlow.Size = new System.Drawing.Size(121, 21);
-            this.cmbPointsSlow.TabIndex = 13;
-            this.cmbPointsSlow.Text = "15";
+            this.cmbFastDataSet.FormattingEnabled = true;
+            this.cmbFastDataSet.Items.AddRange(new object[] {
+            "10000",
+            "100000",
+            "1000000"});
+            this.cmbFastDataSet.Location = new System.Drawing.Point(123, 10);
+            this.cmbFastDataSet.Name = "cmbFastDataSet";
+            this.cmbFastDataSet.Size = new System.Drawing.Size(121, 21);
+            this.cmbFastDataSet.TabIndex = 3;
+            this.cmbFastDataSet.Text = "10000";
             // 
-            // cmbPointsFast
+            // label2
             // 
-            this.cmbPointsFast.FormattingEnabled = true;
-            this.cmbPointsFast.Items.AddRange(new object[] {
-            "3",
-            "10",
-            "15",
-            "25"});
-            this.cmbPointsFast.Location = new System.Drawing.Point(382, 10);
-            this.cmbPointsFast.Name = "cmbPointsFast";
-            this.cmbPointsFast.Size = new System.Drawing.Size(121, 21);
-            this.cmbPointsFast.TabIndex = 19;
-            this.cmbPointsFast.Text = "15";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Select size of data set:";
             // 
-            // label4
+            // btnStartSlow
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(306, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Points to win:";
+            this.btnStartSlow.Location = new System.Drawing.Point(170, 275);
+            this.btnStartSlow.Name = "btnStartSlow";
+            this.btnStartSlow.Size = new System.Drawing.Size(242, 52);
+            this.btnStartSlow.TabIndex = 14;
+            this.btnStartSlow.Text = "Start Race!";
+            this.btnStartSlow.UseVisualStyleBackColor = true;
+            this.btnStartSlow.Click += new System.EventHandler(this.btnStartSlow_Click);
+            // 
+            // btnStartFast
+            // 
+            this.btnStartFast.Location = new System.Drawing.Point(166, 275);
+            this.btnStartFast.Name = "btnStartFast";
+            this.btnStartFast.Size = new System.Drawing.Size(242, 52);
+            this.btnStartFast.TabIndex = 20;
+            this.btnStartFast.Text = "Start Race!";
+            this.btnStartFast.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -341,8 +365,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbFastDataSet;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnStartSlow;
-        private System.Windows.Forms.Button btnStartFast;
+        private System.Windows.Forms.Button btnDataSlow;
+        private System.Windows.Forms.Button btnDataFast;
         private System.Windows.Forms.Label lblBubble;
         private System.Windows.Forms.Label lblSelection;
         private System.Windows.Forms.Label lblInsertion;
@@ -359,6 +383,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbPointsFast;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnStartSlow;
+        private System.Windows.Forms.Button btnStartFast;
     }
 }
 
