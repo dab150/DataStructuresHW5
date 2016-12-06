@@ -16,6 +16,8 @@ namespace DataStructuresHW5
         SelectionSort selection;
         BubbleSort bubble;
         MergeSort merge;
+        QuickSort quickFirst;
+        QuickSort quickMid;
 
         public Form1()
         {
@@ -24,6 +26,8 @@ namespace DataStructuresHW5
             selection = new SelectionSort();
             bubble = new BubbleSort();
             merge = new MergeSort();
+            quickFirst = new QuickSort();
+            quickMid = new QuickSort();
         }
 
         private void btnStartSlow_Click(object sender, EventArgs e)
@@ -66,7 +70,7 @@ namespace DataStructuresHW5
             }
         }
 
-        void updateSlowScores()
+        private void updateSlowScores()
         {
             try
             {
@@ -77,61 +81,75 @@ namespace DataStructuresHW5
                 if (Math.Min(insertion.sortTime.TotalMilliseconds, Math.Min(selection.sortTime.TotalMilliseconds, bubble.sortTime.TotalMilliseconds)) == insertion.sortTime.TotalMilliseconds)
                 {
                     //assign 3 points to insertion
-                    prgInsertion.Value = prgInsertion.Value + 3;
+                    prgInsertion.PerformStep();
+                    prgInsertion.PerformStep();
+                    prgInsertion.PerformStep();
+
 
                     if (Math.Min(selection.sortTime.TotalMilliseconds, bubble.sortTime.TotalMilliseconds) == selection.sortTime.TotalMilliseconds)
                     {
                         //give 2 points to selection
-                        prgSelection.Value = prgSelection.Value + 2;
+                        prgSelection.PerformStep();
+                        prgSelection.PerformStep();
                         //give 1 point to bubble
-                        prgBubble.Value = prgBubble.Value + 1;
+                        prgBubble.PerformStep();
                     }
                     else
                     {
                         //give 2 points to bubble
-                        prgBubble.Value = prgBubble.Value + 2;
+                        prgBubble.PerformStep();
+                        prgBubble.PerformStep();
                         //give 1 point to selection
-                        prgSelection.Value = prgSelection.Value + 1;
+                        prgSelection.PerformStep();
                     }
                 }
                 else if (Math.Min(insertion.sortTime.TotalMilliseconds, Math.Min(selection.sortTime.TotalMilliseconds, bubble.sortTime.TotalMilliseconds)) == selection.sortTime.TotalMilliseconds)
                 {
                     //assign 3 points to selection
-                    prgSelection.Value = prgSelection.Value + 3;
+                    prgSelection.PerformStep();
+                    prgSelection.PerformStep();
+                    prgSelection.PerformStep();
 
                     if (Math.Min(insertion.sortTime.TotalMilliseconds, bubble.sortTime.TotalMilliseconds) == insertion.sortTime.TotalMilliseconds)
                     {
                         //give 2 points to insertion
-                        prgInsertion.Value = prgInsertion.Value + 2;
+                        prgInsertion.PerformStep();
+                        prgInsertion.PerformStep();
+
                         //give 1 point to bubble
-                        prgBubble.Value = prgBubble.Value + 1;
+                        prgBubble.PerformStep();
                     }
                     else
                     {
                         //give 2 points to bubble
-                        prgBubble.Value = prgBubble.Value + 2;
+                        prgBubble.PerformStep();
+                        prgBubble.PerformStep();
                         //give 1 point to insertion
-                        prgInsertion.Value = prgInsertion.Value + 1;
+                        prgInsertion.PerformStep();
                     }
                 }
                 else if (Math.Min(insertion.sortTime.TotalMilliseconds, Math.Min(selection.sortTime.TotalMilliseconds, bubble.sortTime.TotalMilliseconds)) == bubble.sortTime.TotalMilliseconds)
                 {
                     //assign 3 points to bubble
-                    prgBubble.Value = prgBubble.Value + 3;
+                    prgBubble.PerformStep();
+                    prgBubble.PerformStep();
+                    prgBubble.PerformStep();
 
                     if (Math.Min(insertion.sortTime.TotalMilliseconds, selection.sortTime.TotalMilliseconds) == insertion.sortTime.TotalMilliseconds)
                     {
                         //give 2 points to insertion
-                        prgInsertion.Value = prgInsertion.Value + 2;
+                        prgInsertion.PerformStep();
+                        prgInsertion.PerformStep();
                         //give 1 point to selection
-                        prgSelection.Value = prgSelection.Value + 1;
+                        prgSelection.PerformStep();
                     }
                     else
                     {
                         //give 2 points to selection
-                        prgSelection.Value = prgSelection.Value + 2;
+                        prgSelection.PerformStep();
+                        prgSelection.PerformStep();
                         //give 1 point to insertion
-                        prgInsertion.Value = prgInsertion.Value + 1;
+                        prgInsertion.PerformStep();
                     }
                 }
 
@@ -154,14 +172,135 @@ namespace DataStructuresHW5
             int winningPoints = Int32.Parse(cmbPointsFast.SelectedItem.ToString());
             int sizeOfData = Int32.Parse(cmbFastDataSet.SelectedItem.ToString());
 
-            Random rnd = new Random();
-            List<int> dataSet = Enumerable.Range(0, sizeOfData).Select(n => rnd.Next(0, 1000000)).ToList();
+            //initialize scores to 0
+            lblMergeScore.Text = "0";
+            lblQuickFirstScore.Text = "0";
+            lblQuickMidScore.Text = "0";
 
-            //run mergeSort 
-            merge.insertData(dataSet);
-            merge.sort();
+            prgMerge.Value = 0;
+            prgQuickFirst.Value = 0;
+            prgQuickMid.Value = 0;
 
-            //updateScores();
+            lblMergeTime.Text = "Time: ";
+            lblQuickFirstTime.Text = "Time: ";
+            lblQuickMidTime.Text = "Time: ";
+
+            while (Int32.Parse(lblMergeScore.Text) < winningPoints && Int32.Parse(lblQuickFirstScore.Text) < winningPoints && Int32.Parse(lblQuickMidScore.Text) < winningPoints)
+            {
+
+                Random rnd = new Random();
+                List<int> dataSet = Enumerable.Range(0, sizeOfData).Select(n => rnd.Next(0, 1000000)).ToList();
+
+                //run mergeSort 
+                merge.insertData(dataSet);
+                merge.sort();
+
+                //run quicksort (Pivot at First Element)
+                quickFirst.insertData(dataSet);
+                quickFirst.sortFirst();
+
+                //run quicksort (Pivot at Middle Element)
+                quickMid.insertData(dataSet);
+                quickMid.sortMid();
+
+                updateFastScores();
+            }
+        }
+
+        private void updateFastScores()
+        {
+            try
+            {
+                prgMerge.Maximum = Int32.Parse(cmbPointsFast.SelectedItem.ToString());
+                prgQuickFirst.Maximum = Int32.Parse(cmbPointsFast.SelectedItem.ToString());
+                prgQuickMid.Maximum = Int32.Parse(cmbPointsFast.SelectedItem.ToString());
+
+                if (Math.Min(merge.sortTime.TotalMilliseconds, Math.Min(quickFirst.sortTimeFirst.TotalMilliseconds, quickMid.sortTimeMid.TotalMilliseconds)) == merge.sortTime.TotalMilliseconds)
+                {
+                    //assign 3 points to merge
+                    prgMerge.PerformStep();
+                    prgMerge.PerformStep();
+                    prgMerge.PerformStep();
+
+                    if (Math.Min(quickFirst.sortTimeFirst.TotalMilliseconds, quickMid.sortTimeMid.TotalMilliseconds) == quickFirst.sortTimeFirst.TotalMilliseconds)
+                    {
+                        //give 2 points to quickFirst
+                        prgQuickFirst.PerformStep();
+                        prgQuickFirst.PerformStep();
+
+                        //give 1 point to quickMid
+                        prgQuickMid.PerformStep();
+                    }
+                    else
+                    {
+                        //give 2 points to quickMid
+                        prgQuickMid.PerformStep();
+                        prgQuickMid.PerformStep();
+                        //give 1 point to quickFirst
+                        prgQuickFirst.PerformStep();
+                    }
+                }
+                else if (Math.Min(merge.sortTime.TotalMilliseconds, Math.Min(quickFirst.sortTimeFirst.TotalMilliseconds, quickMid.sortTimeMid.TotalMilliseconds)) == quickFirst.sortTimeFirst.TotalMilliseconds)
+                {
+                    //assign 3 points to quickFirst
+                    prgQuickFirst.PerformStep();
+                    prgQuickFirst.PerformStep();
+                    prgQuickFirst.PerformStep();
+
+                    if (Math.Min(merge.sortTime.TotalMilliseconds, quickMid.sortTimeMid.TotalMilliseconds) == merge.sortTime.TotalMilliseconds)
+                    {
+                        //give 2 points to merge
+                        prgMerge.PerformStep();
+                        prgMerge.PerformStep();
+                        //give 1 point to quickMid
+                        prgQuickMid.PerformStep();
+                    }
+                    else
+                    {
+                        //give 2 points to quickMid
+                        prgQuickMid.PerformStep();
+                        prgQuickMid.PerformStep();
+                        //give 1 point to merge
+                        prgMerge.PerformStep();
+                    }
+                }
+                else if (Math.Min(merge.sortTime.TotalMilliseconds, Math.Min(quickFirst.sortTimeFirst.TotalMilliseconds, quickMid.sortTimeMid.TotalMilliseconds)) == quickMid.sortTimeMid.TotalMilliseconds)
+                {
+                    //assign 3 points to quickMid
+                    prgQuickMid.PerformStep();
+                    prgQuickMid.PerformStep();
+                    prgQuickMid.PerformStep();
+
+                    if (Math.Min(merge.sortTime.TotalMilliseconds, quickFirst.sortTimeFirst.TotalMilliseconds) == merge.sortTime.TotalMilliseconds)
+                    {
+                        //give 2 points to merge
+                        prgMerge.PerformStep();
+                        prgMerge.PerformStep();
+                        //give 1 point to quickFirst
+                        prgQuickFirst.PerformStep();
+                    }
+                    else
+                    {
+                        //give 2 points to quickFirst
+                        prgQuickFirst.PerformStep();
+                        prgQuickFirst.PerformStep();
+                        //give 1 point to merge
+                        prgMerge.PerformStep();
+                    }
+                }
+
+                lblMergeScore.Text = prgMerge.Value.ToString();
+                lblQuickFirstScore.Text = prgQuickFirst.Value.ToString();
+                lblQuickMidScore.Text = prgQuickMid.Value.ToString();
+
+                lblMergeTime.Text = "Time: " + merge.sortTime.TotalMilliseconds.ToString();
+                lblQuickFirstTime.Text = "Time: " + quickFirst.sortTimeFirst.TotalMilliseconds.ToString();
+                lblQuickMidTime.Text = "Time: " + quickMid.sortTimeMid.TotalMilliseconds.ToString();
+            }
+            catch (Exception e)
+            {
+
+            }
         }
     }
 }
