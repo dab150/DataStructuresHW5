@@ -7,14 +7,14 @@ using System.Diagnostics;
 
 namespace DataStructuresHW5
 {
-    class SelectionSort
+    class BubbleSort
     {
         private List<int> data;
         private int endIndex;
         private int numElements;
         public TimeSpan sortTime;
 
-        public SelectionSort(int size)
+        public BubbleSort(int size)
         {
             endIndex = size - 1;
             numElements = size;
@@ -30,36 +30,30 @@ namespace DataStructuresHW5
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            //pos_min is short for position of min
-            int pos_min, temp;
+            int temp = data[0];
 
-            for (int i = 0; i < numElements - 1; i++)
+            for (int i = 0; i < numElements; i++)
             {
-                pos_min = i;//set pos_min to the current index of array
-
                 for (int j = i + 1; j < numElements; j++)
                 {
-                    if (data[j] < data[pos_min])
+                    if (data[i] > data[j])
                     {
-                        //pos_min will keep track of the index that min is in, this is needed when a swap happens
-                        pos_min = j;
-                    }
-                }
+                        temp = data[i];
 
-                //if pos_min no longer equals i than a smaller value must have been found, so a swap must occur
-                if (pos_min != i)
-                {
-                    temp = data[i];
-                    data[i] = data[pos_min];
-                    data[pos_min] = temp;
+                        data[i] = data[j];
+
+                        data[j] = temp;
+                    }
                 }
             }
 
             data.ToString();
-
             stopwatch.Stop();
 
             sortTime = stopwatch.Elapsed;
+
+            //System.Windows.Forms.MessageBox.Show("Bubble Sort Complete! \nTook " + ts.TotalMilliseconds.ToString() + " milliseconds!");
         }
+
     }
 }

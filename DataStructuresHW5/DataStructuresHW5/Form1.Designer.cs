@@ -55,6 +55,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnStartSlow = new System.Windows.Forms.Button();
             this.btnStartFast = new System.Windows.Forms.Button();
+            this.lblInsertionScore = new System.Windows.Forms.Label();
+            this.lblSelectionScore = new System.Windows.Forms.Label();
+            this.lblBubbleScore = new System.Windows.Forms.Label();
+            this.lblInsertionTime = new System.Windows.Forms.Label();
+            this.lblSelectionTime = new System.Windows.Forms.Label();
+            this.lblBubbleTime = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -73,6 +79,12 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblBubbleTime);
+            this.tabPage1.Controls.Add(this.lblSelectionTime);
+            this.tabPage1.Controls.Add(this.lblInsertionTime);
+            this.tabPage1.Controls.Add(this.lblBubbleScore);
+            this.tabPage1.Controls.Add(this.lblSelectionScore);
+            this.tabPage1.Controls.Add(this.lblInsertionScore);
             this.tabPage1.Controls.Add(this.btnStartSlow);
             this.tabPage1.Controls.Add(this.cmbPointsSlow);
             this.tabPage1.Controls.Add(this.label3);
@@ -339,6 +351,60 @@
             this.btnStartFast.Text = "Start Race!";
             this.btnStartFast.UseVisualStyleBackColor = true;
             // 
+            // lblInsertionScore
+            // 
+            this.lblInsertionScore.AutoSize = true;
+            this.lblInsertionScore.Location = new System.Drawing.Point(481, 142);
+            this.lblInsertionScore.Name = "lblInsertionScore";
+            this.lblInsertionScore.Size = new System.Drawing.Size(13, 13);
+            this.lblInsertionScore.TabIndex = 15;
+            this.lblInsertionScore.Text = "0";
+            // 
+            // lblSelectionScore
+            // 
+            this.lblSelectionScore.AutoSize = true;
+            this.lblSelectionScore.Location = new System.Drawing.Point(481, 179);
+            this.lblSelectionScore.Name = "lblSelectionScore";
+            this.lblSelectionScore.Size = new System.Drawing.Size(13, 13);
+            this.lblSelectionScore.TabIndex = 16;
+            this.lblSelectionScore.Text = "0";
+            // 
+            // lblBubbleScore
+            // 
+            this.lblBubbleScore.AutoSize = true;
+            this.lblBubbleScore.Location = new System.Drawing.Point(481, 218);
+            this.lblBubbleScore.Name = "lblBubbleScore";
+            this.lblBubbleScore.Size = new System.Drawing.Size(13, 13);
+            this.lblBubbleScore.TabIndex = 17;
+            this.lblBubbleScore.Text = "0";
+            // 
+            // lblInsertionTime
+            // 
+            this.lblInsertionTime.AutoSize = true;
+            this.lblInsertionTime.Location = new System.Drawing.Point(38, 155);
+            this.lblInsertionTime.Name = "lblInsertionTime";
+            this.lblInsertionTime.Size = new System.Drawing.Size(33, 13);
+            this.lblInsertionTime.TabIndex = 18;
+            this.lblInsertionTime.Text = "Time:";
+            // 
+            // lblSelectionTime
+            // 
+            this.lblSelectionTime.AutoSize = true;
+            this.lblSelectionTime.Location = new System.Drawing.Point(38, 192);
+            this.lblSelectionTime.Name = "lblSelectionTime";
+            this.lblSelectionTime.Size = new System.Drawing.Size(33, 13);
+            this.lblSelectionTime.TabIndex = 19;
+            this.lblSelectionTime.Text = "Time:";
+            // 
+            // lblBubbleTime
+            // 
+            this.lblBubbleTime.AutoSize = true;
+            this.lblBubbleTime.Location = new System.Drawing.Point(38, 231);
+            this.lblBubbleTime.Name = "lblBubbleTime";
+            this.lblBubbleTime.Size = new System.Drawing.Size(33, 13);
+            this.lblBubbleTime.TabIndex = 20;
+            this.lblBubbleTime.Text = "Time:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,6 +451,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnStartSlow;
         private System.Windows.Forms.Button btnStartFast;
+        private System.Windows.Forms.Label lblBubbleScore;
+        private System.Windows.Forms.Label lblSelectionScore;
+        private System.Windows.Forms.Label lblInsertionScore;
+        private System.Windows.Forms.Label lblBubbleTime;
+        private System.Windows.Forms.Label lblSelectionTime;
+        private System.Windows.Forms.Label lblInsertionTime;
     }
 }
 

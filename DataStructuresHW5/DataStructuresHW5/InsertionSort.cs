@@ -12,7 +12,7 @@ namespace DataStructuresHW5
         private List<int> arr;
         private int endIndex;
         private int numElements;
-
+        public TimeSpan sortTime;
         public InsertionSort(int size)
         {
             endIndex = size - 1;
@@ -46,9 +46,7 @@ namespace DataStructuresHW5
 
             stopwatch.Stop();
 
-            TimeSpan ts = stopwatch.Elapsed;
-
-            System.Windows.Forms.MessageBox.Show("Insertion Sort Complete! \nTook " + ts.TotalMilliseconds.ToString() + " milliseconds!");
+            sortTime = stopwatch.Elapsed;
         }
     }
 }
