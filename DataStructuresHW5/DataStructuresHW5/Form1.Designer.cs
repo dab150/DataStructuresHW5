@@ -48,6 +48,12 @@
             this.cmbSlowDataSet = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblQuickMidScore = new System.Windows.Forms.Label();
+            this.lblQuickFirstScore = new System.Windows.Forms.Label();
+            this.lblMergeScore = new System.Windows.Forms.Label();
+            this.lblQuickMidTime = new System.Windows.Forms.Label();
+            this.lblQuickFirstTime = new System.Windows.Forms.Label();
+            this.lblMergeTime = new System.Windows.Forms.Label();
             this.btnStartFast = new System.Windows.Forms.Button();
             this.cmbPointsFast = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,12 +65,6 @@
             this.prgMerge = new System.Windows.Forms.ProgressBar();
             this.cmbFastDataSet = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblMergeTime = new System.Windows.Forms.Label();
-            this.lblQuickFirstTime = new System.Windows.Forms.Label();
-            this.lblQuickMidTime = new System.Windows.Forms.Label();
-            this.lblMergeScore = new System.Windows.Forms.Label();
-            this.lblQuickFirstScore = new System.Windows.Forms.Label();
-            this.lblQuickMidScore = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -164,9 +164,9 @@
             // 
             // btnStartSlow
             // 
-            this.btnStartSlow.Location = new System.Drawing.Point(170, 275);
+            this.btnStartSlow.Location = new System.Drawing.Point(120, 272);
             this.btnStartSlow.Name = "btnStartSlow";
-            this.btnStartSlow.Size = new System.Drawing.Size(242, 52);
+            this.btnStartSlow.Size = new System.Drawing.Size(355, 52);
             this.btnStartSlow.TabIndex = 14;
             this.btnStartSlow.Text = "Start Race!";
             this.btnStartSlow.UseVisualStyleBackColor = true;
@@ -295,11 +295,65 @@
             this.tabPage2.Text = "N*LOG(N) Searches";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lblQuickMidScore
+            // 
+            this.lblQuickMidScore.AutoSize = true;
+            this.lblQuickMidScore.Location = new System.Drawing.Point(484, 246);
+            this.lblQuickMidScore.Name = "lblQuickMidScore";
+            this.lblQuickMidScore.Size = new System.Drawing.Size(13, 13);
+            this.lblQuickMidScore.TabIndex = 26;
+            this.lblQuickMidScore.Text = "0";
+            // 
+            // lblQuickFirstScore
+            // 
+            this.lblQuickFirstScore.AutoSize = true;
+            this.lblQuickFirstScore.Location = new System.Drawing.Point(484, 189);
+            this.lblQuickFirstScore.Name = "lblQuickFirstScore";
+            this.lblQuickFirstScore.Size = new System.Drawing.Size(13, 13);
+            this.lblQuickFirstScore.TabIndex = 25;
+            this.lblQuickFirstScore.Text = "0";
+            // 
+            // lblMergeScore
+            // 
+            this.lblMergeScore.AutoSize = true;
+            this.lblMergeScore.Location = new System.Drawing.Point(484, 134);
+            this.lblMergeScore.Name = "lblMergeScore";
+            this.lblMergeScore.Size = new System.Drawing.Size(13, 13);
+            this.lblMergeScore.TabIndex = 24;
+            this.lblMergeScore.Text = "0";
+            // 
+            // lblQuickMidTime
+            // 
+            this.lblQuickMidTime.AutoSize = true;
+            this.lblQuickMidTime.Location = new System.Drawing.Point(34, 269);
+            this.lblQuickMidTime.Name = "lblQuickMidTime";
+            this.lblQuickMidTime.Size = new System.Drawing.Size(33, 13);
+            this.lblQuickMidTime.TabIndex = 23;
+            this.lblQuickMidTime.Text = "Time:";
+            // 
+            // lblQuickFirstTime
+            // 
+            this.lblQuickFirstTime.AutoSize = true;
+            this.lblQuickFirstTime.Location = new System.Drawing.Point(34, 212);
+            this.lblQuickFirstTime.Name = "lblQuickFirstTime";
+            this.lblQuickFirstTime.Size = new System.Drawing.Size(33, 13);
+            this.lblQuickFirstTime.TabIndex = 22;
+            this.lblQuickFirstTime.Text = "Time:";
+            // 
+            // lblMergeTime
+            // 
+            this.lblMergeTime.AutoSize = true;
+            this.lblMergeTime.Location = new System.Drawing.Point(34, 147);
+            this.lblMergeTime.Name = "lblMergeTime";
+            this.lblMergeTime.Size = new System.Drawing.Size(33, 13);
+            this.lblMergeTime.TabIndex = 21;
+            this.lblMergeTime.Text = "Time:";
+            // 
             // btnStartFast
             // 
-            this.btnStartFast.Location = new System.Drawing.Point(166, 299);
+            this.btnStartFast.Location = new System.Drawing.Point(123, 287);
             this.btnStartFast.Name = "btnStartFast";
-            this.btnStartFast.Size = new System.Drawing.Size(242, 52);
+            this.btnStartFast.Size = new System.Drawing.Size(355, 52);
             this.btnStartFast.TabIndex = 20;
             this.btnStartFast.Text = "Start Race!";
             this.btnStartFast.UseVisualStyleBackColor = true;
@@ -400,60 +454,6 @@
             this.label2.Size = new System.Drawing.Size(114, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Select size of data set:";
-            // 
-            // lblMergeTime
-            // 
-            this.lblMergeTime.AutoSize = true;
-            this.lblMergeTime.Location = new System.Drawing.Point(34, 147);
-            this.lblMergeTime.Name = "lblMergeTime";
-            this.lblMergeTime.Size = new System.Drawing.Size(33, 13);
-            this.lblMergeTime.TabIndex = 21;
-            this.lblMergeTime.Text = "Time:";
-            // 
-            // lblQuickFirstTime
-            // 
-            this.lblQuickFirstTime.AutoSize = true;
-            this.lblQuickFirstTime.Location = new System.Drawing.Point(34, 212);
-            this.lblQuickFirstTime.Name = "lblQuickFirstTime";
-            this.lblQuickFirstTime.Size = new System.Drawing.Size(33, 13);
-            this.lblQuickFirstTime.TabIndex = 22;
-            this.lblQuickFirstTime.Text = "Time:";
-            // 
-            // lblQuickMidTime
-            // 
-            this.lblQuickMidTime.AutoSize = true;
-            this.lblQuickMidTime.Location = new System.Drawing.Point(34, 269);
-            this.lblQuickMidTime.Name = "lblQuickMidTime";
-            this.lblQuickMidTime.Size = new System.Drawing.Size(33, 13);
-            this.lblQuickMidTime.TabIndex = 23;
-            this.lblQuickMidTime.Text = "Time:";
-            // 
-            // lblMergeScore
-            // 
-            this.lblMergeScore.AutoSize = true;
-            this.lblMergeScore.Location = new System.Drawing.Point(484, 134);
-            this.lblMergeScore.Name = "lblMergeScore";
-            this.lblMergeScore.Size = new System.Drawing.Size(13, 13);
-            this.lblMergeScore.TabIndex = 24;
-            this.lblMergeScore.Text = "0";
-            // 
-            // lblQuickFirstScore
-            // 
-            this.lblQuickFirstScore.AutoSize = true;
-            this.lblQuickFirstScore.Location = new System.Drawing.Point(484, 189);
-            this.lblQuickFirstScore.Name = "lblQuickFirstScore";
-            this.lblQuickFirstScore.Size = new System.Drawing.Size(13, 13);
-            this.lblQuickFirstScore.TabIndex = 25;
-            this.lblQuickFirstScore.Text = "0";
-            // 
-            // lblQuickMidScore
-            // 
-            this.lblQuickMidScore.AutoSize = true;
-            this.lblQuickMidScore.Location = new System.Drawing.Point(484, 246);
-            this.lblQuickMidScore.Name = "lblQuickMidScore";
-            this.lblQuickMidScore.Size = new System.Drawing.Size(13, 13);
-            this.lblQuickMidScore.TabIndex = 26;
-            this.lblQuickMidScore.Text = "0";
             // 
             // Form1
             // 

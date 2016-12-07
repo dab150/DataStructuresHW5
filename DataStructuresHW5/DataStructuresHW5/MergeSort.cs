@@ -26,56 +26,78 @@ namespace DataStructuresHW5
             data = dataSet;
         }
 
-        public void DoMerge(int left, int mid, int right)
-        {
-            int[] temp = new int[numElements];
-            int i, left_end, num_elements, tmp_pos;
-
-            left_end = (mid - 1);
-            tmp_pos = left;
-            num_elements = (right - left + 1);
-
-            while ((left <= left_end) && (mid <= right))
-            {
-                if (data[left] <= data[mid])
-                    temp[tmp_pos++] = data[left++];
-                else
-                    temp[tmp_pos++] = data[mid++];
-            }
-
-            while (left <= left_end)
-                temp[tmp_pos++] = data[left++];
-
-            while (mid <= right)
-                temp[tmp_pos++] = data[mid++];
-
-            for (i = 0; i < num_elements; i++)
-            {
-                data[right] = temp[right];
-                right--;
-            }
-        }
-
         public void sort()
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            sort(0, endIndex);
+            MergeSortIterative(ref data);
             stopwatch.Stop();
             sortTime = stopwatch.Elapsed;
         }
 
-        private void sort(int left, int right)
+        public void MergeSortIterative(ref List<int> data)
         {
-            int mid;
+            int currentSize;
+            int leftStart;
 
-            if (right > left)
+            for (currentSize = 1; currentSize <= data.Count - 1; currentSize = 2 * currentSize)
             {
-                mid = (right + left) / 2;
-                sort(left, mid);
-                sort((mid + 1), right);
+                for (leftStart = 0; leftStart < data.Count - 1; leftStart += 2 * currentSize)
+                {
+                    int rightEnd = Math.Min(leftStart + 2 * currentSize - 1, data.Count - 1);
+                    int mid = (leftStart + rightEnd) / 2;
 
-                DoMerge(left, (mid + 1), right);
+                    Merge(ref data, leftStart, mid, rightEnd);
+                }
+            }
+        }
+
+        private void Merge(ref List<int> data, int left, int mid, int right)
+        {
+            int i, j, k;
+            int n1 = mid - left + 1;
+            int n2 = right - mid;
+            int[] L = new int[n1];
+            int[] R = new int[n2];
+
+            for (i = 0; i < n1; i++)
+                L[i] = data[left + i];
+
+            for (j = 0; j < n2; j++)
+                R[j] = data[mid + 1 + j];
+
+            i = 0;
+            j = 0;
+            k = left;
+
+            while (i < n1 && j < n2)
+            {
+                if (L[i] <= R[j])
+                {
+                    data[k] = L[i];
+                    i++;
+                }
+                else
+                {
+                    data[k] = R[j];
+                    j++;
+                }
+
+                k++;
+            }
+
+            while (i < n1)
+            {
+                data[k] = L[i];
+                i++;
+                k++;
+            }
+
+            while (j < n2)
+            {
+                data[k] = R[j];
+                j++;
+                k++;
             }
         }
 

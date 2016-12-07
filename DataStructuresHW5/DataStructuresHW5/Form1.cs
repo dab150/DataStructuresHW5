@@ -32,6 +32,7 @@ namespace DataStructuresHW5
 
         private void btnStartSlow_Click(object sender, EventArgs e)
         {
+
             int winningPoints = Int32.Parse(cmbPointsSlow.SelectedItem.ToString());
             int sizeOfData = Int32.Parse(cmbSlowDataSet.SelectedItem.ToString());
 
@@ -169,6 +170,7 @@ namespace DataStructuresHW5
 
         private void btnStartFast_Click(object sender, EventArgs e)
         {
+
             int winningPoints = Int32.Parse(cmbPointsFast.SelectedItem.ToString());
             int sizeOfData = Int32.Parse(cmbFastDataSet.SelectedItem.ToString());
 
@@ -191,9 +193,7 @@ namespace DataStructuresHW5
                 Random rnd = new Random();
                 List<int> dataSet = Enumerable.Range(0, sizeOfData).Select(n => rnd.Next(0, 1000000)).ToList();
 
-                //run mergeSort 
-                merge.insertData(dataSet);
-                merge.sort();
+             
 
                 //run quicksort (Pivot at First Element)
                 quickFirst.insertData(dataSet);
@@ -202,6 +202,10 @@ namespace DataStructuresHW5
                 //run quicksort (Pivot at Middle Element)
                 quickMid.insertData(dataSet);
                 quickMid.sortMid();
+
+                //run mergeSort 
+                merge.insertData(dataSet);
+                merge.sort();
 
                 updateFastScores();
             }
@@ -302,5 +306,6 @@ namespace DataStructuresHW5
 
             }
         }
+
     }
 }
