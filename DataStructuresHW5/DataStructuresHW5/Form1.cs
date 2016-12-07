@@ -193,7 +193,7 @@ namespace DataStructuresHW5
                 Random rnd = new Random();
                 List<int> dataSet = Enumerable.Range(0, sizeOfData).Select(n => rnd.Next(0, 1000000)).ToList();
 
-             
+
 
                 //run quicksort (Pivot at First Element)
                 quickFirst.insertData(dataSet);

@@ -25,7 +25,7 @@ namespace DataStructuresHW5
         {
             endIndex = dataSet.Count - 1;
             numElements = dataSet.Count;
-            data = dataSet;
+            data = new List<int> (dataSet);
         }
 
         public int Partition(ref List<int> list, int left, int right)
@@ -73,7 +73,7 @@ namespace DataStructuresHW5
         private void sort(List<int> list, int left, int right)
         {
             
-            int startIndex = left;
+            int startIndex = 0;
             int lastIndex = numElements - 1;
             int top = -1;
             int[] stack = new int[numElements];
