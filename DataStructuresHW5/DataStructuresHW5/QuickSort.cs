@@ -28,40 +28,8 @@ namespace DataStructuresHW5
             data = dataSet;
         }
 
-        private void Swap(int a, int b)
-        {
-            int temp = a;
-            a = b;
-            b = temp;
-        }
-
         public int Partition(ref List<int> list, int left, int right)
         {
-            /*
-            long pivot = list[left];
-            while (true)
-            {
-                while (list[left] < pivot)
-                    left++;
-
-                while (list[right] > pivot)
-                    right--;
-
-                if (list[right] == pivot && list[left] == pivot)
-                    left++;
-
-                if (left < right)
-                {
-                    int temp = list[left];
-                    list[left] = list[right];
-                    list[right] = temp;
-                }
-                else
-                {
-                    return right;
-                }
-            }*/
-
             int x = list[right];
             int i = (left - 1);
 
@@ -70,11 +38,15 @@ namespace DataStructuresHW5
                 if (list[j] <= x)
                 {
                     ++i;
-                    Swap(list[i], list[j]);
+                    int temp2 = list[i];
+                    list[i] = list[j];
+                    list[j] = temp2;
                 }
             }
 
-            Swap(list[i + 1], list[right]);
+            int temp = list[i+1];
+            list[i+1] = list[right];
+            list[right] = temp;
 
             return (i + 1);
 
@@ -100,12 +72,13 @@ namespace DataStructuresHW5
 
         private void sort(List<int> list, int left, int right)
         {
-            int top = -1;
-            int startIndex = 0;
+            
+            int startIndex = left;
             int lastIndex = numElements - 1;
+            int top = -1;
             int[] stack = new int[numElements];
 
-            stack[++top] = 0;
+            stack[++top] = startIndex;
             stack[++top] = lastIndex;
 
             while (top >= 0)
